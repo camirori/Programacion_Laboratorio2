@@ -15,7 +15,7 @@ namespace Ej04Guia_Clase01
             int i;
             int divisor;
 
-            Console.WriteLine("Numeros primos");
+            Console.WriteLine("Numeros perfectos");
             for(i=1, primosEncontrados = 0; primosEncontrados < 4; i++,acumulado=0)
             {
                 for(divisor = 1; divisor < i; divisor++)
@@ -25,7 +25,7 @@ namespace Ej04Guia_Clase01
                 }
                 if(acumulado == i)
                 {
-                    Console.WriteLine("Primo {0}", i);
+                    Console.WriteLine("{0}", i);
                     primosEncontrados++;
                 }
             }
