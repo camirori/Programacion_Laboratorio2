@@ -18,7 +18,7 @@ namespace Ej07Guia_Clase02
             fecha = DateTime.Parse(Console.ReadLine());
             dias = DateTime.Now - fecha;
 
-            Console.WriteLine("Dias vividos: {0}", dias.Days);
+            Console.WriteLine("Dias vividos desde {1:dd/MM/yy}: {0}", fecha,dias.Days);
             Console.ReadKey();
         }
     }

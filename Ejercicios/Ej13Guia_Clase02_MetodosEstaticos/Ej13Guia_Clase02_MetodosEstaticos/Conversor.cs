@@ -15,14 +15,14 @@ namespace Ej13Guia_Clase02_MetodosEstaticos
             int cociente = (int)inputDecimal;
             double parteDecimal = inputDecimal - cociente;
 
-            do
+            while (cociente >= 2)
             {
                 resto= cociente % 2;
                 cociente /= 2;
-                outputBinario = string.Concat(resto, outputBinario); 
-            }while (cociente>=2) ;
+                outputBinario = string.Concat(resto, outputBinario);    //resto.ToString()+binarioOutput;
+            } 
             outputBinario = string.Concat(cociente, outputBinario);
-            for(int i=0;i<4;i++)
+            for(int i=0;i<4 && parteDecimal>0; i++)
             {
                 if(parteDecimal*2>0)
                 {
