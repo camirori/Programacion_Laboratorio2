@@ -8,7 +8,7 @@ namespace Ej11Guia_Clase02_MetodosEstaticos
 {
     class Validacion
     {
-        static public bool Validar(int valor, int min, int max)
+        public static bool Validar(int valor, int min, int max)
         {
             bool retorno = false;
             if (valor >= min && valor <= max)

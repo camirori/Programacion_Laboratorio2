@@ -11,7 +11,6 @@ namespace Ej11Guia_Clase02_MetodosEstaticos
         static void Main(string[] args)
         {
             int input;
-            string buffer;
             int max = 0;
             int min = 0;
             int acumulado = 0;
@@ -21,9 +20,7 @@ namespace Ej11Guia_Clase02_MetodosEstaticos
             for (i = 0; i < 5; i++)
             {
                 Console.WriteLine("Numero:");
-                buffer = Console.ReadLine();
-                input = int.Parse(buffer);
-                if (Validacion.Validar(input, -100, 100))
+                if (Int32.TryParse(Console.ReadLine(),out input) && Validacion.Validar(input, -100, 100))
                 {
                     acumulado += input;
                     if (input < min || i == 0)
