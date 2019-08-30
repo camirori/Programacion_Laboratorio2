@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Ej16Guia_C_Objetos
 {
     class Program
@@ -21,7 +22,7 @@ namespace Ej16Guia_C_Objetos
             alumno2.CalcularFinal();
             alumno1.Mostrar();
             alumno2.Mostrar();
-
+                    
             Console.ReadKey();
         }
     }

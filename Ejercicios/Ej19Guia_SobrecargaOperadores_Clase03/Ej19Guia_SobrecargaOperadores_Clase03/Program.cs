@@ -13,6 +13,15 @@ namespace Ej19Guia_SobrecargaOperadores_Clase03
             Sumador prueba = new Sumador();
             Console.WriteLine(prueba.Sumar("a", "b"));
 
+            Sumador prueba2 = new Sumador(2);
+            Console.WriteLine("{0}", prueba + prueba2);
+            Console.WriteLine("{0}", prueba | prueba2);
+
+            Console.WriteLine(prueba.Sumar(1, 2));
+            Console.WriteLine("{0}", prueba | prueba2);
+
+            Console.WriteLine("{0}", (int) prueba);
+
             Console.ReadKey();
         }
     }

@@ -30,12 +30,17 @@ namespace Ej16Guia_C_Objetos
             if (this._nota1 >= 4 && this._nota2 >= 4)
             {
                 Random buffer = new Random();
-                this._notaFinal = buffer.Next(0, 10);
+                this._notaFinal = buffer.Next(1, 11);
             }
             else
                 this._notaFinal = -1;
         }
 
+        /// <summary>
+        /// Carga las notas 1 y 2 del alumno
+        /// </summary>
+        /// <param name="notaUno"></param>
+        /// <param name="notaDos"></param>
         public void Estudiar(byte notaUno, byte notaDos)
         {
             this._nota1 = notaUno;

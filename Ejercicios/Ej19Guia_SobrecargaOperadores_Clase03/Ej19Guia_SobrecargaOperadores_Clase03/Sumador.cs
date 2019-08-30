@@ -20,6 +20,7 @@ namespace Ej19Guia_SobrecargaOperadores_Clase03
             this.cantidadSumas = cantidadSumas;
         }
 
+        //metodos
         public long Sumar(long a, long b)
         {
             this.cantidadSumas++;
@@ -29,6 +30,28 @@ namespace Ej19Guia_SobrecargaOperadores_Clase03
         {
             this.cantidadSumas++;
             return a + b;
+        }
+
+        //c conversion explicita
+        public static explicit operator int (Sumador s)
+        {
+            return s.cantidadSumas;
+        }
+
+        //d
+        public static long operator +(Sumador s1, Sumador s2)
+        {
+            long suma = s1.cantidadSumas + s2.cantidadSumas;
+            return suma;
+        }
+
+        //e
+        public static bool operator |(Sumador s1, Sumador s2)
+        {
+            if (s1.cantidadSumas == s2.cantidadSumas)
+                return true;
+            else
+                return false;
         }
 
 
