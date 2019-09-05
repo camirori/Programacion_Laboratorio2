@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repaso", "Repaso\Repaso.csproj", "{D152E0BB-293B-4789-83B9-8BEF8C883DF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{3F322332-ACED-4DB2-B61F-88ADDFEF5BC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D152E0BB-293B-4789-83B9-8BEF8C883DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D152E0BB-293B-4789-83B9-8BEF8C883DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D152E0BB-293B-4789-83B9-8BEF8C883DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D152E0BB-293B-4789-83B9-8BEF8C883DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F322332-ACED-4DB2-B61F-88ADDFEF5BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F322332-ACED-4DB2-B61F-88ADDFEF5BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F322332-ACED-4DB2-B61F-88ADDFEF5BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F322332-ACED-4DB2-B61F-88ADDFEF5BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD62D866-062D-4061-9C7D-7F36104FB8A9}
+	EndGlobalSection
+EndGlobal

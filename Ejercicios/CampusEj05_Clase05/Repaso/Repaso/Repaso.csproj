@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{226AC92D-BF7C-45E3-AB4E-E63ED5FCC2E4}</ProjectGuid>
+    <ProjectGuid>{D152E0BB-293B-4789-83B9-8BEF8C883DF7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ej20Guia_SobrecargaOperadores_Clase04</RootNamespace>
-    <AssemblyName>Ej20Guia_SobrecargaOperadores_Clase04</AssemblyName>
+    <RootNamespace>Repaso</RootNamespace>
+    <AssemblyName>Repaso</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestEstante.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{3f322332-aced-4db2-b61f-88addfef5bc2}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
