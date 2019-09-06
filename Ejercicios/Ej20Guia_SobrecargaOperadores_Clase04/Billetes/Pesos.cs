@@ -6,27 +6,29 @@ using System.Threading.Tasks;
 
 namespace Billetes
 {
-    class Pesos
+    public class Pesos
     {
+        #region Atributos
         private double cantidad;
         private static double cotizRespectoDolar;   //b
+        #endregion
 
-        //constructores
+        #region Constructores
         static Pesos()  //e
         {
-            new Pesos(0, 38.33);
+            cotizRespectoDolar = 38.33;
         }
         public Pesos(double cantidad)
         {
-            new Pesos(cantidad, 38.33);
-        }
-        public Pesos(double cantidad, double cotizacion)
-        {
             this.cantidad = cantidad;
+        }
+        public Pesos(double cantidad, double cotizacion): this(cantidad)
+        {
             cotizRespectoDolar = cotizacion;    //la cotiz es de la clase, no de this
         }
+        #endregion
 
-        //Getters
+        #region Getters
         public double GetCantidad()
         {
             return this.cantidad;
@@ -35,7 +37,9 @@ namespace Billetes
         {
             return cotizRespectoDolar;      //no se usa this porque va a devolver la cotiz de la clase
         }
+        #endregion
 
+        #region Sobrecargas
         //c
         //Explicit operator
         public static explicit operator Dolar(Pesos d)
@@ -56,5 +60,50 @@ namespace Billetes
             Pesos retorno = new Pesos(d);     //d es la cantidad
             return retorno;
         }
+
+        //a  sumar, restar y comparar
+        public static bool operator ==(Pesos p, Dolar d) //comparo cantidades
+        {
+            return (d == p);
+        }
+        public static bool operator ==(Pesos p, Euro e)
+        {
+            return e == p;
+        }
+        public static bool operator ==(Pesos p1, Pesos p2)
+        {
+            return (p1.GetCantidad() == p2.GetCantidad());
+        }
+        public static bool operator !=(Pesos p, Dolar d)
+        {
+            return !(d == p);
+        }
+        public static bool operator !=(Pesos p, Euro e)
+        {
+            return !(e == p);
+        }
+        public static bool operator !=(Pesos p1, Pesos p2)
+        {
+            return !(p1 == p2);
+        }
+
+        public static Pesos operator +(Pesos p, Dolar d)
+        {
+            return (Pesos)(d + p);
+        }
+        public static Pesos operator -(Pesos p, Dolar d)
+        {
+            return (Pesos)((Dolar)p - (Pesos)d);
+        }
+        public static Pesos operator +(Pesos p, Euro e)
+        {
+            return p + (Dolar)e;
+        }
+        public static Pesos operator -(Pesos p, Euro e)
+        {
+            return p - (Dolar)e;
+        }
+        #endregion
+
     }
 }

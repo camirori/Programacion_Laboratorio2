@@ -6,27 +6,29 @@ using System.Threading.Tasks;
 
 namespace Billetes
 {
-    class Dolar
+    public class Dolar
     {
+        #region Atributos
         private double cantidad;
         private static double cotizRespectoDolar;   //b
+        #endregion
 
-        //constructores
+        #region Constructores
         static Dolar()  //e
         {
-            new Dolar(0, 1);
+            cotizRespectoDolar = 1;
         }
         public Dolar(double cantidad)
         {
             new Dolar(cantidad, 1);
         }
-        public Dolar(double cantidad, double cotizacion)
+        public Dolar(double cantidad, double cotizacion): this(cantidad)
         {
-            this.cantidad = cantidad;
-            cotizRespectoDolar = cotizacion;    //la cotiz es de la clase, no de this
+            cotizRespectoDolar = cotizacion;        //no es constante, es una variable, pero cuando se modifique impacta en toda la clase por ser estàtica
         }
+        #endregion
 
-        //Getters
+        #region Getters
         public double GetCantidad()
         {
             return this.cantidad;
@@ -35,7 +37,9 @@ namespace Billetes
         {
             return cotizRespectoDolar;      //no se usa this porque va a devolver la cotiz de la clase
         }
+        #endregion
 
+        #region Sobrecargas
         //c
         //Explicit operator
         public static explicit operator Euro (Dolar d)
@@ -58,6 +62,55 @@ namespace Billetes
         }
 
         //a  sumar, restar y comparar
+        public static bool operator ==(Dolar d, Euro e) //comparo cantidades
+        {
+            return (e.GetCantidad() == ((Euro)d).GetCantidad()) ;
+        }
+        public static bool operator ==(Dolar d, Pesos p)
+        {
+            return (p.GetCantidad() == ((Pesos)d).GetCantidad());
+        }
+        public static bool operator ==(Dolar d1, Dolar d2)
+        {
+            return (d1.GetCantidad() == d2.GetCantidad());
+        }
+        public static bool operator !=(Dolar d, Euro e)
+        {
+            return !(d == e);
+        }
+        public static bool operator !=(Dolar d, Pesos p)
+        {
+            return !(d == p);
+        }
+        public static bool operator !=(Dolar d1, Dolar d2)
+        {
+            return !(d1 == d2);
+        }
+
+        public static Dolar operator +(Dolar d, Euro e)
+        {
+            Dolar retorno = new Dolar(d.GetCantidad() + ((Dolar)e).GetCantidad());
+            return retorno;
+        }
+        public static Dolar operator -(Dolar d, Euro e)
+        {
+            Dolar retorno = new Dolar(d.GetCantidad() - ((Dolar)e).GetCantidad());
+            return retorno;
+        }
+        public static Dolar operator +(Dolar d, Pesos p)
+        {
+            Dolar retorno = new Dolar(d.GetCantidad() + ((Dolar)p).GetCantidad());
+            return retorno;
+        }
+        public static Dolar operator -(Dolar d, Pesos p)
+        {
+            Dolar retorno = new Dolar(d.GetCantidad() - ((Dolar)p).GetCantidad());
+            return retorno;
+        }
+        #endregion
+
+
+
 
 
 
