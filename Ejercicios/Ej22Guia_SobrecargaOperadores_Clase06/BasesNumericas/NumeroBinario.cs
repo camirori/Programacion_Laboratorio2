@@ -24,17 +24,17 @@ namespace BasesNumericas
         #region Operadores
         public static string operator +(NumeroBinario b, NumeroDecimal d)
         {
-            double suma = d + Conversor.BinarioDecimal(b.numero);
-            return Conversor.DecimalBinario(suma);
+            double suma = (double)d + Conversor.BinarioDecimal((string)b);
+            return Conversor.DecimalBinario(suma); 
         }
         public static string operator -(NumeroBinario b, NumeroDecimal d)
         {
-            double resta = Conversor.BinarioDecimal(b) - d;
-            return (NumeroBinario)resta;
+            double resta = Conversor.BinarioDecimal((string)b) - (double)d;
+            return Conversor.DecimalBinario(resta);
         }
         public static bool operator ==(NumeroBinario b, NumeroDecimal d)
         {
-            return Conversor.BinarioDecimal(b) == d;
+            return Conversor.BinarioDecimal((string)b) == (double)d;
         }
         public static bool operator !=(NumeroBinario b, NumeroDecimal d)
         {

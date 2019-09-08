@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasesNumericas\BasesNumericas.csproj">
+      <Project>{500c61bd-aba0-4bbf-8d37-a95d677ae658}</Project>
+      <Name>BasesNumericas</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

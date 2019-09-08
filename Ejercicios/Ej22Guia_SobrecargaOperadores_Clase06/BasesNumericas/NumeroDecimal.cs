@@ -21,23 +21,24 @@ namespace BasesNumericas
         }
 
         #region Sobrecargas
-        public static double operator + (NumeroDecimal d, NumeroBinario b)
+        #region Operadores
+        public static double operator +(NumeroDecimal d, NumeroBinario b)
         {
-            
+            return (double)d + Conversor.BinarioDecimal((string)b);
         }
         public static double operator -(NumeroDecimal d, NumeroBinario b)
         {
-            
+            return (double)d - Conversor.BinarioDecimal((string)b);
         }
         public static bool operator ==(NumeroDecimal d, NumeroBinario b)
         {
-            
+            return b == d;
         }
         public static bool operator !=(NumeroDecimal d, NumeroBinario b)
         {
-            
+            return b != d;
         }
-
+        #endregion
         #region Conversiones
         public static explicit operator double(NumeroDecimal d)
         {
@@ -50,7 +51,6 @@ namespace BasesNumericas
         }
 
         #endregion
-
         #endregion
     }
 }

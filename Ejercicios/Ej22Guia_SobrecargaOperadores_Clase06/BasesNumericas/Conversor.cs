@@ -24,10 +24,10 @@ namespace BasesNumericas
             outputBinario = string.Concat(cociente, outputBinario);
             for (int i = 0; i < 4 && parteDecimal > 0; i++)
             {
-                if (parteDecimal * 2 > 0)
-                {
-
-                }
+                if (parteDecimal * 2 >= 1)
+                    outputBinario = string.Concat(outputBinario, "1");
+                else
+                    outputBinario = string.Concat(outputBinario, "0");
             }
 
             return outputBinario;
