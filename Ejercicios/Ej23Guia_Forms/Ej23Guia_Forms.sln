@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej23Guia_Forms", "Ej23Guia_Forms\Ej23Guia_Forms.csproj", "{50CE1FFF-15F3-4DED-BB73-680B47909DA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billetes", "Billetes\Billetes.csproj", "{6D684265-D746-412F-A978-86C07F4CF0C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50CE1FFF-15F3-4DED-BB73-680B47909DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CE1FFF-15F3-4DED-BB73-680B47909DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CE1FFF-15F3-4DED-BB73-680B47909DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CE1FFF-15F3-4DED-BB73-680B47909DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D684265-D746-412F-A978-86C07F4CF0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D684265-D746-412F-A978-86C07F4CF0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D684265-D746-412F-A978-86C07F4CF0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D684265-D746-412F-A978-86C07F4CF0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2CAFD44-8DF3-4EEC-A4CA-E6400A35D7FD}
+	EndGlobalSection
+EndGlobal
