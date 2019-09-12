@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblEuro = new System.Windows.Forms.Label();
             this.lblDolar = new System.Windows.Forms.Label();
             this.lblPeso = new System.Windows.Forms.Label();
@@ -54,6 +56,7 @@
             this.txtCotiDolar = new System.Windows.Forms.TextBox();
             this.txtCotiPeso = new System.Windows.Forms.TextBox();
             this.btnLockCoti = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // lblEuro
@@ -271,13 +274,21 @@
             // 
             // btnLockCoti
             // 
+            this.btnLockCoti.ImageIndex = 1;
+            this.btnLockCoti.ImageList = this.imageList1;
             this.btnLockCoti.Location = new System.Drawing.Point(134, 30);
             this.btnLockCoti.Name = "btnLockCoti";
             this.btnLockCoti.Size = new System.Drawing.Size(75, 23);
             this.btnLockCoti.TabIndex = 25;
-            this.btnLockCoti.Text = "C";
             this.btnLockCoti.UseVisualStyleBackColor = true;
             this.btnLockCoti.Click += new System.EventHandler(this.BtnLockCoti_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "lock-open-solid.png");
+            this.imageList1.Images.SetKeyName(1, "lock-solid.png");
             // 
             // Form1
             // 
@@ -349,6 +360,7 @@
         private System.Windows.Forms.TextBox txtCotiDolar;
         private System.Windows.Forms.TextBox txtCotiPeso;
         private System.Windows.Forms.Button btnLockCoti;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

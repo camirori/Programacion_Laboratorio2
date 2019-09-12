@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej25Guia_Forms_Clase07", "Ej25Guia_Forms_Clase07\Ej25Guia_Forms_Clase07.csproj", "{87508C86-A348-44A8-84BA-5863FC968CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasesNumericas", "BasesNumericas\BasesNumericas.csproj", "{500C61BD-ABA0-4BBF-8D37-A95D677AE658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87508C86-A348-44A8-84BA-5863FC968CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87508C86-A348-44A8-84BA-5863FC968CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87508C86-A348-44A8-84BA-5863FC968CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87508C86-A348-44A8-84BA-5863FC968CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{500C61BD-ABA0-4BBF-8D37-A95D677AE658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{500C61BD-ABA0-4BBF-8D37-A95D677AE658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{500C61BD-ABA0-4BBF-8D37-A95D677AE658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{500C61BD-ABA0-4BBF-8D37-A95D677AE658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {081CB879-0EB1-480D-96F9-A30B1DE354EA}
+	EndGlobalSection
+EndGlobal

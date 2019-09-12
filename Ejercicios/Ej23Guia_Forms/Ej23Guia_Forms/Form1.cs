@@ -51,16 +51,16 @@ namespace Ej23Guia_Forms
 
         private void BtnLockCoti_Click(object sender, EventArgs e)
         {
-            if(btnLockCoti.Text == "C")
+            if(btnLockCoti.ImageIndex == 1)
             {
-                btnLockCoti.Text = "A";
+                btnLockCoti.ImageIndex = 0;
                 txtCotiDolar.Enabled = true;
                 txtCotiEuro.Enabled = true;
                 txtCotiPeso.Enabled = true;
             }
-            else if (btnLockCoti.Text == "A")
+            else if (btnLockCoti.ImageIndex == 0)
             {
-                btnLockCoti.Text = "C";
+                btnLockCoti.ImageIndex = 1;
                 txtCotiDolar.Enabled = false;
                 txtCotiEuro.Enabled = false;
                 txtCotiPeso.Enabled = false;
