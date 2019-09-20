@@ -32,25 +32,32 @@ namespace Ej28Guia_Arrays_Colecciones_Clase07
                     diccionario.Add(arrayPalabras[i], 1);
             }
 
-            diccionario.OrderByDescending();
+            MessageBox.Show(mensajeTop(diccionario));
+
+        }
+
+
+        private static string mensajeTop(Dictionary<string,int> diccionario)
+        {
+            List<int> listaValues = new List<int>(diccionario.Values);
+            listaValues.Sort();
+            
             int top = 0;
             StringBuilder mensaje = new StringBuilder("");
-            foreach(KeyValuePair<string,int> palabra in diccionario)
+            foreach (int valor in listaValues)
             {
-                mensaje.AppendFormat("{0}\t{1}\n", palabra.Key, palabra.Value);
+                mensaje.AppendFormat("{0}\t{1}\n", diccionario., palabra.Value);
                 top++;
                 if (top > 2)
                     break;
             }
-
-            MessageBox.Show(mensaje.ToString());
-
+            return mensaje.ToString();
         }
-
-        private int ordenar(KeyValuePair<string,int> clave, int i)
+        /*
+        private static int ordenar(KeyValuePair<string,int> clave, int i)
         {
-
-        }
+            if(clave[i] > clave[i])
+        }*/
 
 
     }

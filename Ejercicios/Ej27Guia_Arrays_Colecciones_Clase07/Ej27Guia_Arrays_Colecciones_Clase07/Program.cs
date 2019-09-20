@@ -15,6 +15,7 @@ namespace Ej27Guia_Arrays_Colecciones_Clase07
             List<int> lista = new List<int>();
             Stack<int> pila = new Stack<int>();
             Queue<int> cola = new Queue<int>();
+
             int aleatorio;
 
             for (int i = 0; i < 20; i++)
@@ -57,12 +58,45 @@ namespace Ej27Guia_Arrays_Colecciones_Clase07
             {
                 Console.Write("{0} ", elemento);
             }
-            //no se puede ordenar?
+            List<int> lista2 = new List<int>(pila.ToList());
+            Console.WriteLine("\nPositivos");
+            lista2.Sort(Decreciente);
+            foreach (int elemento in lista2)
+            {
+                if (elemento < 0)
+                    break;
+                Console.Write("{0} ", elemento);
+            }
+            Console.WriteLine("\nNegativos");
+            lista2.Sort();
+            foreach (int elemento in lista2)
+            {
+                if (elemento > 0)
+                    break;
+                Console.Write("{0} ", elemento);
+            }
 
             ///////////////////////////////////////////
             Console.WriteLine("\nQueue");
             foreach (int elemento in cola)
             {
+                Console.Write("{0} ", elemento);
+            }
+            lista2 = cola.ToList();
+            Console.WriteLine("\nPositivos");
+            lista2.Sort(Decreciente);
+            foreach (int elemento in lista2)
+            {
+                if (elemento < 0)
+                    break;
+                Console.Write("{0} ", elemento);
+            }
+            Console.WriteLine("\nNegativos");
+            lista2.Sort();
+            foreach (int elemento in lista2)
+            {
+                if (elemento > 0)
+                    break;
                 Console.Write("{0} ", elemento);
             }
 
