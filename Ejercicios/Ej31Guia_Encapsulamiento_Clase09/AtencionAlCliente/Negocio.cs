@@ -8,7 +8,7 @@ namespace AtencionAlCliente
 {
     public class Negocio
     {
-        private PuestoAtencion caja;
+        private PuestoAtencion caja;            //para que el negocio tiene un numero de caja si no se valida al atender?
         private Queue<Cliente> cliente;
         private string nombre;
 
@@ -53,14 +53,14 @@ namespace AtencionAlCliente
             else
                 return false;
         }
-        public static bool operator ~(Negocio n)
+        public static bool operator ~(Negocio n)                //no tiene en cuenta el numero de puesto del negocio y num del puesto que atiende
         {
-            do
+            if (PuestoAtencion.NumeroActual == n.Cliente.Numero)
             {
-                if(PuestoAtencion.NumeroActual==)
-
+                return PuestoAtencion.Atender(n.Cliente);
             }
-            PuestoAtencion.Atender(n.Cliente);
+            else
+                return false;
         }
 
     }

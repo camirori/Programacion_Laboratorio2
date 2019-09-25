@@ -39,25 +39,32 @@ namespace Ej28Guia_Arrays_Colecciones_Clase07
 
         private static string mensajeTop(Dictionary<string,int> diccionario)
         {
-            List<int> listaValues = new List<int>(diccionario.Values);
-            listaValues.Sort();
-            
+            List<KeyValuePair<string, int>> listaValues = new List<KeyValuePair<string, int>>(diccionario.ToList());
+            listaValues.Sort(comparar);
+
+            // Versión Lambda del método Compare:
+            //lista.Sort((x, y) => y.Value - x.Value);
+
+            // OPCION 2: Ordenar usando LINQ y funciones lambda
+            // Directamente sobre el diccionario.
+            //contadorPalabras.OrderByDescending(keyValuePair => keyValuePair.Value);
+
             int top = 0;
             StringBuilder mensaje = new StringBuilder("");
-            foreach (int valor in listaValues)
+            foreach (KeyValuePair<string, int> entrada in listaValues)
             {
-                mensaje.AppendFormat("{0}\t{1}\n", diccionario., palabra.Value);
+                mensaje.AppendFormat("{0}\t{1}\n", entrada.Key, entrada.Value);
                 top++;
                 if (top > 2)
                     break;
             }
             return mensaje.ToString();
         }
-        /*
-        private static int ordenar(KeyValuePair<string,int> clave, int i)
+        
+        private static int comparar(KeyValuePair<string,int> clave1, KeyValuePair<string,int> clave2)
         {
-            if(clave[i] > clave[i])
-        }*/
+            return clave2.Value-clave1.Value;
+        }
 
 
     }

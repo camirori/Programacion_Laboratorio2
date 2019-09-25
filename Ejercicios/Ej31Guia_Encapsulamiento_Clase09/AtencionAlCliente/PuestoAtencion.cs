@@ -25,7 +25,7 @@ namespace AtencionAlCliente
         {
             this.puesto = puesto;
         }
-        public bool Atender(Cliente cli)    //se atiende al cliente si objPuestoAt.NumeroActual==oblCliente.Numero
+        public static bool Atender(Cliente cli)    //se atiende al cliente si Puesto.NumeroActual==objCliente.Numero, debería ser de instancia para chequear el Puesto==negocio.puesto
         {
             Thread.Sleep(1000);
             return true;
