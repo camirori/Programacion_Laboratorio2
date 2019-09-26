@@ -6,25 +6,33 @@ using System.Threading.Tasks;
 
 namespace Ej33Guia_Encapsulamiento
 {
-    class Libro
+    public class Libro
     {
         private List<string> paginas;
+
+        public Libro()
+        {
+            this.paginas = new List<string>();
+        }
 
         public string this[int i]
         {
             get
             {
-                if (i < paginas.Count() && i >= 0)
-                    return paginas[i];
+                if (i < this.paginas.Count && i >= 0)
+                    return this.paginas[i];
                 else
-                    return "";
+                    return String.Empty;
             }
             set
             {
-                if (i < paginas.Count() && i >= 0)
-                    paginas[i] = value;
-                else if(i> paginas.Count())
-                    paginas.Add(value);
+                if(i>=0)
+                {
+                    if (i < this.paginas.Count)
+                        this.paginas[i]= value;             //reemplaza lo que ya està
+                    else if(i>= this.paginas.Count) 
+                        this.paginas.Add(value);
+                }
             }
         }
     }

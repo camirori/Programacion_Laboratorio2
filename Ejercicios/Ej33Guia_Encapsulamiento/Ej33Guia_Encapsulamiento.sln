@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29209.62
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej33Guia_Encapsulamiento", "Ej33Guia_Encapsulamiento\Ej33Guia_Encapsulamiento.csproj", "{2EBAE45C-9E07-4433-8684-D68ABB696C5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{ABA4524F-EA47-46F9-BCCC-C93597FE9823}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2EBAE45C-9E07-4433-8684-D68ABB696C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EBAE45C-9E07-4433-8684-D68ABB696C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EBAE45C-9E07-4433-8684-D68ABB696C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA4524F-EA47-46F9-BCCC-C93597FE9823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA4524F-EA47-46F9-BCCC-C93597FE9823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA4524F-EA47-46F9-BCCC-C93597FE9823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA4524F-EA47-46F9-BCCC-C93597FE9823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
