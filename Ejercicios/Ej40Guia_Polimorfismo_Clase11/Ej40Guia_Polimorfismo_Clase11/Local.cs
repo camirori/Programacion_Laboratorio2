@@ -34,5 +34,18 @@ namespace CentralitaHerencia
         }
 
         #endregion
+
+        #region Sobrecarga
+        public override bool Equals(object obj)
+        {
+            return (obj is Local) ? true : false;
+        }
+
+        public override string ToString()
+        {
+            return this.Mostrar();
+        }
+
+        #endregion
     }
 }

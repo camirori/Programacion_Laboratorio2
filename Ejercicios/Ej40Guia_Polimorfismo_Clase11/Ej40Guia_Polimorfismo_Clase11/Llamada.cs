@@ -57,12 +57,16 @@ namespace CentralitaHerencia
 
         public static bool operator ==(Llamada l1, Llamada l2)
         {
-            return (l1.GetType() == l2.GetType())&& (l1.;
+            return (l1.Equals(l2)) && l1.NroDestino==l2.NroDestino && l1.NroOrigen==l2.NroOrigen;
         }
         public static bool operator !=(Llamada l1, Llamada l2)
         {
             return !(l1 == l2);
         }
+
+        /*El operador == comparará dos llamadas y retornará true si las llamadas son del mismo tipo
+        (utilizar método Equals, sobrescrito en las clases derivadas) y los números de destino y
+        origen son iguales en ambas llamadas.*/
 
         public enum TipoLlamada { Local, Provincial, Todas }
     }

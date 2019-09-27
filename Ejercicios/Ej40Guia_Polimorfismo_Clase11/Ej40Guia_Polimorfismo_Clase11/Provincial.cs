@@ -44,6 +44,19 @@ namespace CentralitaHerencia
 
         #endregion
 
+        #region Sobrecarga
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Provincial) ? true : false;
+        }
+
+        public override string ToString()
+        {
+            return this.Mostrar();
+        }
+
+        #endregion
+
         public enum Franja { Franja_1, Franja_2, Franja_3}
     }
 }

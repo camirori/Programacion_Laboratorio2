@@ -31,6 +31,11 @@ namespace CentralitaHerencia
         #endregion
 
         #region Metodos
+        private void AgregarLlamada(Llamada nuevaLlamada)
+        {
+            this.listaDeLlamadas.Add(nuevaLlamada);
+        }
+
         private float CalcularGanancia(Llamada.TipoLlamada tipo)
         {
             float acumulado = 0;
@@ -61,16 +66,16 @@ namespace CentralitaHerencia
             this.razonSocial = nombreEmpresa;
         }
 
-        public string Mostrar()
+        protected string Mostrar()
         {
             StringBuilder mensaje = new StringBuilder("");
             mensaje.AppendFormat("\n\n\nRazon social: {0} \tGanancia total: {1:C2}\tGanancia por locales {2:C2}\tGanancia por provinciales {3:C2}", this.razonSocial, this.GananciasPorTotal, this.GananciasPorLocal,this.GananciasPorProvincial);
             foreach(Llamada llamada in listaDeLlamadas)
             {
                 if(llamada is Local)
-                    mensaje.Append(((Local)llamada).Mostrar());
+                    mensaje.Append(((Local)llamada).ToString());
                 else if (llamada is Provincial)
-                    mensaje.Append(((Provincial)llamada).Mostrar());
+                    mensaje.Append(((Provincial)llamada).ToString());
             }
             return mensaje.ToString();
             //expondrá la razón social, la ganancia total, ganancia por llamados locales
@@ -79,6 +84,31 @@ namespace CentralitaHerencia
         public void OrdenarLlamadas()
         {
             listaDeLlamadas.Sort(Llamada.OrdenarPorDuracion);
+        }
+
+        #endregion
+
+        #region Sobrecarga
+        public static bool operator ==(Centralita c,Llamada llamada)
+        {
+            return c.listaDeLlamadas.Contains(llamada);
+        }
+        public static bool operator !=(Centralita c, Llamada llamada)
+        {
+            return !(c==llamada);
+        }
+        public static Centralita operator +(Centralita c, Llamada nuevaLlamada)
+        {
+            if (c != nuevaLlamada)
+            {
+                c.AgregarLlamada(nuevaLlamada);
+            }
+            return c;
+        }
+
+        public override string ToString()
+        {
+            return this.Mostrar();
         }
 
         #endregion
