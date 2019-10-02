@@ -20,30 +20,36 @@ namespace CentralTelefonica
         public FrmMostrar(Centralita central)
         {
             InitializeComponent();
+            this.central = central;
         }
 
         public Llamada.TipoLlamada FacturarTipoLlamada
         {
-            set { this.tipoLlamada = value; }
-        }
+            set {
+                this.tipoLlamada = value;
+                this.CalcularGanancias(value);
+            }
 
-        private void FrmMostrar_Load(object sender, EventArgs e)
+        }
+        public void CalcularGanancias(Llamada.TipoLlamada tipoLlamada)
         {
             float ganacia;
             switch(tipoLlamada)
             {
                 case Llamada.TipoLlamada.Local:
-                    ganacia= central.GananciasPorLocal;
+                    ganacia= this.central.GananciasPorLocal;
                     break;
                 case Llamada.TipoLlamada.Provincial:
-                    ganacia = central.GananciasPorProvincial;
+                    ganacia = this.central.GananciasPorProvincial;
                     break;
                 case Llamada.TipoLlamada.Todas:
                 default:
-                    ganacia = central.GananciasPorTotal;
+                    ganacia = this.central.GananciasPorTotal;
                     break;
             }
             rTxtFacturacion.Text = String.Format("Ganacia por tipo de llamada {0}: {1:0.00}", tipoLlamada, ganacia);
         }
+
+
     }
 }

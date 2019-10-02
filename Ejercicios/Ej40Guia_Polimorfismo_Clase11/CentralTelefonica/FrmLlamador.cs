@@ -168,7 +168,7 @@ namespace CentralTelefonica
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            FrmMenu.central = central;
+            //FrmMenu.central = central;    //no es necesario porque lo paso por referencia
             this.Close();
         }
 
@@ -179,13 +179,13 @@ namespace CentralTelefonica
             {
                 Provincial.Franja franjas;
                 Enum.TryParse<Provincial.Franja>(cmbFranja.SelectedValue.ToString(), out franjas);
-                Provincial nuevaLlamada = new Provincial(txtNroOrigen.Text, franjas, aleatorio.Next(0,60),txtNroDestino.Text);
-                central += nuevaLlamada;
+                Provincial nuevaLlamada = new Provincial(txtNroOrigen.Text, franjas, aleatorio.Next(0,6),txtNroDestino.Text);
+                this.central += nuevaLlamada;
             }
             else
             {
                 Local nuevaLlamada = new Local(txtNroOrigen.Text, aleatorio.Next(0,60),txtNroDestino.Text, aleatorio.Next(0,6));
-                central += nuevaLlamada;
+                this.central += nuevaLlamada;
             }
             
         }
