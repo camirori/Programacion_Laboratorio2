@@ -8,19 +8,31 @@ namespace Ej36Guia_Herencia
 {
     class AutoF1: VehiculoDeCarrera
     {
+        private short caballosDeFuerza;
+
+        public short CaballosDeFuerza
+        {
+            get { return caballosDeFuerza; }
+            set { caballosDeFuerza = value; }
+        }
 
 
         public AutoF1(short numero, string escuderia) : base(numero, escuderia) { }
-        public string MostrarDatos()
+        public AutoF1(short numero, string escuderia,short caballosDeFuerza): this(numero,escuderia)
         {
-            StringBuilder mensaje = new StringBuilder("");
-            mensaje.AppendFormat("\nEscudería {0}\tNumero: {1}\tEn competencia: {2}\tCantidad combustible: {3}\tVueltas restantes: {4}",this.escuderia,this.numero,this.enCompetencia,this.cantidadCombustible,this.vueltasRestantes);
+            this.caballosDeFuerza = caballosDeFuerza;
+        }
+
+        public override string MostrarDatos()
+        {
+            StringBuilder mensaje = new StringBuilder(base.ToString());
+            mensaje.AppendFormat("\tCaballos De Fuerza: {0}", this.CaballosDeFuerza);
             return mensaje.ToString();
         }
 
         public static bool operator ==(AutoF1 a1,AutoF1 a2)
         {
-            return String.Equals(a1.escuderia, a2.escuderia) && a1.numero == a2.numero;
+            return String.Equals(a1.Escuderia, a2.Escuderia) && a1.Numero == a2.Numero;
         }
         public static bool operator !=(AutoF1 a1, AutoF1 a2)
         {

@@ -21,6 +21,7 @@ namespace ComiqueriaApp
             InitializeComponent();
             this.producto = producto;
             this.comiqueria = comiqueria;
+            lblPrecioFinalValor.Text = producto.Precio.ToString("0.00");
         }
 
         private void numericUpDownCantidad_ValueChanged(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace ComiqueriaApp
         {
             if(numericUpDownCantidad.Value>producto.Stock)
             {
-                MessageBox.Show("Superó el stock disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Superó el stock disponible. Modifique la cantidad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

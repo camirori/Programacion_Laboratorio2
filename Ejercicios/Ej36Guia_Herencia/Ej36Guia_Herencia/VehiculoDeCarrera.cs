@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej36Guia_Herencia
 {
-    class VehiculoDeCarrera
+    public class VehiculoDeCarrera
     {
         private short cantidadCombustible;
         private bool enCompetencia;
@@ -49,7 +49,7 @@ namespace Ej36Guia_Herencia
             this.escuderia = escuderia;
         }
 
-        public string MostrarDatos()
+        public virtual string MostrarDatos()
         {
             StringBuilder mensaje = new StringBuilder("");
             mensaje.AppendFormat("\nEscudería {0}\tNumero: {1}\tEn competencia: {2}\tCantidad combustible: {3}\tVueltas restantes: {4}", this.escuderia, this.numero, this.enCompetencia, this.cantidadCombustible, this.vueltasRestantes);
