@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComiqueriaLogic
 {
-    sealed class Venta
+    public sealed class Venta
     {
         #region Campos
         private DateTime fecha;
@@ -41,7 +41,7 @@ namespace ComiqueriaLogic
 
         public static double CalcularPrecioFinal(double precioUnidad,int cantidad)
         {
-            return (precioUnidad * cantidad) * (1 + porcentajeIva);
+            return (precioUnidad * cantidad) * (1+(((double)porcentajeIva)/100));
         }
 
         public string ObtenerDescripcionBreve()

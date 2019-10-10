@@ -21,13 +21,12 @@ namespace ComiqueriaApp
             InitializeComponent();
             this.producto = producto;
             this.comiqueria = comiqueria;
-            lblPrecioFinalValor.Text = producto.Precio.ToString("0.00");
+            ActualizarPrecio();
         }
 
         private void numericUpDownCantidad_ValueChanged(object sender, EventArgs e)
         {
-            double precio = Convert.ToDouble(numericUpDownCantidad.Value)*producto.Precio;
-            lblPrecioFinalValor.Text = precio.ToString("0.00");
+            ActualizarPrecio();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -48,6 +47,12 @@ namespace ComiqueriaApp
                 this.Close();
             }
                 
+        }
+
+        private void ActualizarPrecio()
+        {
+            double precio = Venta.CalcularPrecioFinal(producto.Precio, Convert.ToInt32(numericUpDownCantidad.Value));
+            lblPrecioFinalValor.Text = precio.ToString("0.00");
         }
     }
 }

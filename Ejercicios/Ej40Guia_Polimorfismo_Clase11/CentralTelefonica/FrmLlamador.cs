@@ -184,7 +184,7 @@ namespace CentralTelefonica
             }
             else
             {
-                Local nuevaLlamada = new Local(txtNroOrigen.Text, aleatorio.Next(0,60),txtNroDestino.Text, aleatorio.Next(0,6));
+                Local nuevaLlamada = new Local(txtNroOrigen.Text, aleatorio.Next(0,60),txtNroDestino.Text, ((float)aleatorio.Next(50,560))/100);
                 this.central += nuevaLlamada;
             }
             
