@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentralitaHerencia
+namespace Ej36Guia_Herencia
 {
-    public class CentralitaException: Exception
+    class CompetenciaNoDisponibleException: Exception
     {
         private string nombreClase;
         private string nombreMetodo;
@@ -14,23 +14,28 @@ namespace CentralitaHerencia
         public string NombreMetodo
         {
             get { return nombreMetodo; }
-            set { nombreMetodo = value; }
         }
-
 
         public string NombreClase
         {
             get { return nombreClase; }
-            set { nombreClase = value; }
         }
 
-        public CentralitaException(string mensaje, string clase, string metodo):this(mensaje,clase,metodo,null)
-        { }
-        public CentralitaException(string mensaje, string clase, string metodo, Exception innerException): base(mensaje,innerException)
+        public CompetenciaNoDisponibleException(string mensaje, string clase, string metodo): this(mensaje,clase,metodo,null)
+        {
+        }
+
+        public CompetenciaNoDisponibleException(string mensaje, string clase, string metodo, Exception innerException): base(mensaje,innerException)
         {
             this.nombreClase = clase;
             this.nombreMetodo = metodo;
         }
 
+        public override string ToString()
+        {
+
+
+            return base.ToString();
+        }
     }
 }
