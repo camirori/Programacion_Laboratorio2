@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej36Guia_Herencia
 {
-    class AutoF1: VehiculoDeCarrera
+    public class AutoF1 : VehiculoDeCarrera
     {
         private short caballosDeFuerza;
 
@@ -32,7 +32,7 @@ namespace Ej36Guia_Herencia
 
         public static bool operator ==(AutoF1 a1,AutoF1 a2)
         {
-            return String.Equals(a1.Escuderia, a2.Escuderia) && a1.Numero == a2.Numero;
+            return String.Equals(a1.Escuderia, a2.Escuderia) && a1.Numero == a2.Numero && a1.CaballosDeFuerza == a2.CaballosDeFuerza;
         }
         public static bool operator !=(AutoF1 a1, AutoF1 a2)
         {

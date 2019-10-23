@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ej36Guia_Herencia\Ej36Guia_Herencia.csproj">
+      <Project>{3ee458b5-2589-4e73-8c2d-7dc91db5b9d5}</Project>
+      <Name>Ej36Guia_Herencia</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

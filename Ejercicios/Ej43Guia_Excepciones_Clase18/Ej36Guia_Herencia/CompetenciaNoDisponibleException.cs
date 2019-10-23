@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej36Guia_Herencia
 {
-    class CompetenciaNoDisponibleException: Exception
+    public class CompetenciaNoDisponibleException: Exception
     {
         private string nombreClase;
         private string nombreMetodo;
@@ -33,6 +33,17 @@ namespace Ej36Guia_Herencia
 
         public override string ToString()
         {
+            StringBuilder mensaje = new StringBuilder("");
+
+            mensaje.AppendFormat("Excepción en el método {0} de la clase {1}:",this.NombreMetodo,this.NombreClase);
+            mensaje.AppendLine(this.Message);
+
+            Exception inner = this.InnerException;
+            while(inner!=null)
+            {
+                mensaje.AppendLine(inner.Message);
+                inner = inner.InnerException;
+            }
 
 
             return base.ToString();
