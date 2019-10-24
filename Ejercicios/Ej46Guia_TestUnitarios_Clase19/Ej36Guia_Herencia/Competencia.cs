@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej36Guia_Herencia
 {
-    class Competencia
+    public class Competencia
     {
         private short cantidadCompetidores;
         private short cantidadVueltas;
@@ -21,11 +21,17 @@ namespace Ej36Guia_Herencia
 
         public short CantidadCompetidores { get => cantidadCompetidores; set => cantidadCompetidores = value; }
         public short CantidadVueltas { get => cantidadVueltas; set => cantidadVueltas = value; }
-        internal List<VehiculoDeCarrera> Competidores { get => competidores; set => competidores = value; }
+        public List<VehiculoDeCarrera> Competidores { get => competidores; }        //46.a
+
+        public VehiculoDeCarrera this[int i]  
+        {
+            get { return Competidores[i]; }
+        }
+
 
         private Competencia()
         {
-            this.Competidores = new List<VehiculoDeCarrera>();
+            this.competidores = new List<VehiculoDeCarrera>();
         }
         public Competencia(short cantidadVueltas, short cantidadCompetidores, TipoCompetencia tipo): this()
         {
@@ -48,9 +54,17 @@ namespace Ej36Guia_Herencia
 
         public static bool operator +(Competencia c, VehiculoDeCarrera a)
         {
-            TipoCompetencia tipo;
-            tipo = (a.GetType()==typeof(AutoF1)) ? TipoCompetencia.F1 : TipoCompetencia.MotoCross;
-            if ((c.Competidores.Count() >= c.CantidadCompetidores && c == a) || c.tipo!=tipo)
+            bool retorno;
+            try
+            {
+                retorno= c == a;
+            }
+            catch(CompetenciaNoDisponibleException ex)
+            {
+                throw new CompetenciaNoDisponibleException("Competencia incorrecta", "Competencia", "+", ex);
+            }
+
+            if (c.Competidores.Count() >= c.CantidadCompetidores && retorno)       
                 return false;
             else
             {
@@ -59,7 +73,7 @@ namespace Ej36Guia_Herencia
                 a.VueltasRestantes = c.CantidadVueltas;
                 Random vueltas = new Random();
                 a.CantidadCombustible = (short)vueltas.Next(15, 101);
-                return false;
+                return true;
             }
                 
         }
@@ -69,7 +83,14 @@ namespace Ej36Guia_Herencia
         }
         public static bool operator ==(Competencia c, VehiculoDeCarrera a)
         {
-            foreach(VehiculoDeCarrera vehiculo in c.competidores)
+            TipoCompetencia tipo;
+            tipo = (a.GetType() == typeof(AutoF1)) ? TipoCompetencia.F1 : TipoCompetencia.MotoCross;
+            bool retorno= c.tipo == tipo;
+
+            if (retorno == false)
+                throw new CompetenciaNoDisponibleException("El vehículo no corresponde a la competencia","Competencia","==");
+
+            foreach (VehiculoDeCarrera vehiculo in c.competidores)
             {
                 if (vehiculo == a)
                     return true;

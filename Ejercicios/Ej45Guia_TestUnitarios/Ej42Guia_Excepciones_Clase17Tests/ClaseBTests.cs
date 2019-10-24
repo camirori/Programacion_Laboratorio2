@@ -9,18 +9,12 @@ using System.Threading.Tasks;
 namespace Ej42Guia_Excepciones_Clase17.Tests
 {
     [TestClass()]
-    public class ClaseATests
+    public class ClaseBTests
     {
         [TestMethod()]
-        public void MetodoEstaticoTest()
+        public void ClaseBTest()
         {
-            Assert.ThrowsException<DivideByZeroException>(() => ClaseA.MetodoEstatico());
-        }
-
-        [TestMethod()]
-        public void ClaseATest()
-        {
-            Assert.ThrowsException<DivideByZeroException>(() => new ClaseA());
+            Assert.ThrowsException<UnaException>(() => new ClaseB());
         }
     }
 }

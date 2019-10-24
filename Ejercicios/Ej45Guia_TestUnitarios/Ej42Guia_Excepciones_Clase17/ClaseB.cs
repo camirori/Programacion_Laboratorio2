@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej42Guia_Excepciones_Clase17
 {
-    class ClaseB
+    public class ClaseB
     {
         public ClaseB()
         {
