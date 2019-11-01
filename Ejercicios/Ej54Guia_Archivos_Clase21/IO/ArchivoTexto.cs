@@ -31,6 +31,7 @@ namespace IO
                 else
                     break ;
             }
+            str.Close();
             return info;
         }
 
