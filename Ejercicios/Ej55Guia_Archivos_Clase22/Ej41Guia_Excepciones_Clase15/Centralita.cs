@@ -152,18 +152,24 @@ namespace CentralitaHerencia
         {
             string info = "";
             string linea = "";
-            if (!File.Exists(this.RutaDeArchivo))
-                throw new FileNotFoundException();
-            StreamReader str = new StreamReader(this.RutaDeArchivo);
-            while (true)
+            try
             {
-                linea = str.ReadLine();
-                if (linea != null)
-                    info += (linea + "\n");
-                else
-                    break;
+                if (!File.Exists(this.RutaDeArchivo))
+                    throw new FileNotFoundException();
+
+                using (StreamReader str = new StreamReader(this.RutaDeArchivo))
+                {
+                    while ((linea = str.ReadLine()) != null)
+                    { info += (linea + "\n"); }
+                }
             }
-            str.Close();
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
             return info;
         }
 
