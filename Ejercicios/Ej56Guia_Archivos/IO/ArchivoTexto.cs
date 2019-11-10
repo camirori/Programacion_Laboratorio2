@@ -19,19 +19,17 @@ namespace IO
         public static string Leer(string ruta)
         {
             string info = "";
-            string linea = "";
+            string linea;
             if(!File.Exists(ruta))
                 throw new FileNotFoundException();
-            StreamReader str = new StreamReader(ruta);
-            while(true)
+            using (StreamReader str = new StreamReader(ruta))
             {
-                linea = str.ReadLine();
-                if (linea != null)
+                while ((linea = str.ReadLine()) != null)
+                {
                     info += (linea + "\n");
-                else
-                    break ;
+                }
             }
-            str.Close();
+
             return info;
         }
 

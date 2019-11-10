@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using System.IO;
 
 
 namespace Ej57Guia_Serializacion_Clase22
@@ -26,14 +27,22 @@ namespace Ej57Guia_Serializacion_Clase22
 
         public static bool Guardar(Persona p)
         {
-            string ruta = AppDomain.CurrentDomain.BaseDirectory + "Archivo" + ".xml";
+            string ruta = AppDomain.CurrentDomain.BaseDirectory ;
             //serializar en archivo
             try
             {
-                XmlTextWriter writer = new XmlTextWriter(ruta, Encoding.UTF8);
-                XmlSerializer ser = new XmlSerializer(typeof(Persona));
-                ser.Serialize(writer, p);
-                writer.Close();
+                //XmlTextWriter writer = new XmlTextWriter(ruta, Encoding.UTF8);
+                //XmlSerializer ser = new XmlSerializer(typeof(Persona));
+                //ser.Serialize(writer, p);
+                //writer.Close();
+                //return true;
+                if (!Directory.Exists(ruta))
+                    throw new DirectoryNotFoundException();
+                using (XmlTextWriter writer = new XmlTextWriter(ruta + "Archivo" + ".xml", Encoding.UTF8))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(Persona));
+                    ser.Serialize(writer, p);
+                }
                 return true;
             }
             catch (Exception)
@@ -49,13 +58,30 @@ namespace Ej57Guia_Serializacion_Clase22
             string ruta = AppDomain.CurrentDomain.BaseDirectory + "Archivo" + ".xml";
 
             //deserialice un archivo y retorne una Persona
-            Persona buffer = new Persona();
-            XmlTextReader reader = new XmlTextReader(ruta);
-            XmlSerializer ser = new XmlSerializer(typeof(Persona));
-            buffer = (Persona)ser.Deserialize(reader);
-            reader.Close();
+            //Persona buffer = new Persona();
+            //XmlTextReader reader = new XmlTextReader(ruta);
+            //XmlSerializer ser = new XmlSerializer(typeof(Persona));
+            //buffer = (Persona)ser.Deserialize(reader);
+            //reader.Close();
+            try
+            {
+                if (!File.Exists(ruta))
+                    throw new FileNotFoundException();
+                Persona buffer = new Persona();
+                using (XmlTextReader reader = new XmlTextReader(ruta))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(Persona));
+                    buffer = (Persona)ser.Deserialize(reader);
+                }
+                return buffer;
+            }
+            catch (Exception)
+            {
 
-            return buffer;
+                throw;
+            }
+
+            
         }
 
         public override string ToString()

@@ -14,37 +14,41 @@ namespace Ej56Guia_Archivos
 {
     public partial class Form1 : Form
     {
-        string path = Environment.CurrentDirectory;
+        string path = null;
         public Form1()
         {
             InitializeComponent();
-            toolStripStatusLabel1.Text = "0";
+            toolStripStatusLabel1.Text = "0 caracteres";
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            string[] palabras = richTextBox1.Text.Split(' ');
-            toolStripStatusLabel1.Text= palabras.Length.ToString(); 
+            //si fueran palabras:
+            //string[] palabras = richTextBox1.Text.Split(' ');
+            //toolStripStatusLabel1.Text= palabras.Length.ToString(); 
+
+            toolStripStatusLabel1.Text = (richTextBox1.Text.Count<char>()).ToString() +" caracteres";
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
+            toolStripMenuItem1.HideDropDown();
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.DefaultExt = ".txt";
-            dialog.InitialDirectory = path;
-                       
-            if(DialogResult.OK == dialog.ShowDialog())  //si click cancel no entra
+            dialog.InitialDirectory = (this.path == null) ? AppDomain.CurrentDomain.BaseDirectory : this.path;
+
+            if (DialogResult.OK == dialog.ShowDialog())  //si click cancel no entra
             {
                 this.path = dialog.FileName;
                 richTextBox1.Text=ArchivoTexto.Leer(path);
             }
-                
             richTextBox1.Focus();
         }
 
         private void toolStripTextBox2_Click(object sender, EventArgs e) //guardar
         {
-            if (this.path == null)
+            toolStripMenuItem1.HideDropDown();
+            if (this.path == null)  //si ya se abrió o guardó un archivo path no va a ser null
                 GuardarComo();
             else
                 ArchivoTexto.Guardar(this.path, richTextBox1.Text);
@@ -52,17 +56,22 @@ namespace Ej56Guia_Archivos
 
         private void toolStripTextBox3_Click(object sender, EventArgs e) // guardar como
         {
+            toolStripMenuItem1.HideDropDown();  //Que se cierre el menu
             GuardarComo();
         }
 
         public void GuardarComo()
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = this.path;
-            if(DialogResult.OK==dialog.ShowDialog())    
-                ArchivoTexto.Guardar(dialog.FileName, richTextBox1.Text);
+            dialog.InitialDirectory = (this.path == null) ? AppDomain.CurrentDomain.BaseDirectory : this.path;
+            if (DialogResult.OK==dialog.ShowDialog())
+            {
+                this.path = dialog.FileName;
+                ArchivoTexto.Guardar(this.path, richTextBox1.Text);
+            }
+                
+
         }
     }
 }
 
-//Que se cierre el menu
