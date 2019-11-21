@@ -17,5 +17,19 @@ namespace Ej72_MetodosExtension_Clase23
             string[] palabras = obj.Split(' ');
             return palabras.Count();
         }
+
+        public static int ContarSignosPuntuacion(this String obj)
+        {
+            string signosPuntuacion = ".,;";
+            int contador = 0;
+
+            foreach(Char signo in obj)
+            {
+                if (signosPuntuacion.Contains<char>(signo))
+                    contador++;
+            }
+
+            return contador;
+        }
     }
 }

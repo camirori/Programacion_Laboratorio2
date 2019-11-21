@@ -26,16 +26,13 @@ namespace Ejecucion
             negocio.Clientes.Add("c");
             negocio.Clientes.Add("d");
 
-            
-
-            if (hiloAsignar.ThreadState != ThreadState.Unstarted || hiloAsignar.ThreadState == ThreadState.Running)
-            {
-                hiloAtenderCaja2.Join();
-                hiloAtenderCaja1.Join();
-            }
             hiloAsignar.Start();
+            hiloAsignar.Join();
             hiloAtenderCaja1.Start();
             hiloAtenderCaja2.Start();
+
+            
+            
 
             Console.ReadKey();
         }
